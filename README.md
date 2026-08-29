@@ -1,30 +1,67 @@
-# To-Do-List
-This is a To-Do List made in C++. It has functions like adding a new task, removing a specific task or displaying the remaining tasks.
-# Setup
-You need the folowing programs pre-installed
-1) g++
-2) terminal
+# 📝 CLI To-Do List
 
-# Usage
-To use this, you have to run this command
+A lightweight, terminal-based To-Do List application written in C++. It allows you to add, display, and remove tasks with persistent file storage, plus optional integration to display your pending tasks directly in `fastfetch`.
 
-Step 1. Clone the repo:
-git clone https://github.com/Amorphous7473/To-Do-List.git
+---
 
-Step 2. CD into the repo:
+## ✨ Features
+
+- **Add Tasks:** Append new tasks to your list.
+- **View Tasks:** Display your pending tasks with clean indexing.
+- **Delete Tasks:** Remove specific tasks by index without corrupting the file.
+- **Fastfetch Support:** Lightweight script/binary integration to show your pending tasks on terminal startup.
+
+---
+
+## 🛠 Prerequisites
+
+Make sure you have the following installed:
+
+- **GCC / G++ Compiler** (supporting C++11 or higher)
+- **Git**
+- *(Optional)* **Fastfetch** (for dashboard integration)
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the repository
+```bash
+git clone [https://github.com/Amorphous7473/To-Do-List.git](https://github.com/Amorphous7473/To-Do-List.git)
 cd To-Do-List
+```
 
-Step 3. Run the program:
-g++ todo.cpp -o main && ./main
+### 2. Compile and Run the CLI App
+```bash
+g++ -O2 todo.cpp -o todo && ./todo
+```
 
-The task.cpp displays only the tasks you added in the above c++ file
-To add it to fastfetch add the script.sh in the modules array
-it should look something like this
+---
+
+## ⚡ Fastfetch Integration
+
+To show your pending tasks inside `fastfetch`:
+
+### Step 1: Make the runner script executable
+```bash
+chmod +x script.sh
+```
+
+### Step 2: Update your Fastfetch config
+Open your config file (usually at `~/.config/fastfetch/config.jsonc`) and add the `command` module inside the `modules` array:
+
+```jsonc
 {
-      "type": "command",
-      "key": "Tasks",
-      "text": "$HOME/todo_app/run_todo.sh"
-    },
+  "type": "command",
+  "key": "Tasks",
+  "text": "/absolute/path/to/To-Do-List/script.sh"
+}
+```
 
+> **Note:** Replace `/absolute/path/to/To-Do-List/` with the actual path to your cloned repository.
 
-Thank you.
+---
+
+## 📄 License
+
+This project is open-source and available under the [MIT License](LICENSE).
